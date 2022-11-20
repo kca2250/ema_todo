@@ -1,6 +1,6 @@
 import { Grid, GridItem } from "@chakra-ui/react";
-import { TitleAndDescription } from "../components/TitleAntDesc";
-import { TodoCard } from "../components/TodoCard";
+import { CategoryAndDescription } from "../components/CategoryAndDescription";
+import { TodoList } from "../components/TodoList";
 import { Layouts } from "../layouts";
 
 function App() {
@@ -13,29 +13,34 @@ function App() {
         gap={0}
       >
         <GridItem colSpan={2} bg="#5fbd5f">
-          <TitleAndDescription
-            title="Do"
+          <CategoryAndDescription
+            category="Do"
             description="期限や影響があるタスク"
           />
-          <TodoCard content="this is todo item" />
+          <TodoList category="Do" />
         </GridItem>
-        <GridItem colSpan={2} bg="#6464d5">
-          <TitleAndDescription
-            title="Decide"
+
+        <GridItem colSpan={2} bg="#6464d5" overflow="auto">
+          <CategoryAndDescription
+            category="Decide"
             description="長期的成功に関わる、期限が不明確なタスク"
           />
+          <TodoList category="Decide" />
         </GridItem>
+
         <GridItem colSpan={2} bg="#f7c15f">
-          <TitleAndDescription
-            title="Delegate"
+          <CategoryAndDescription
+            category="Delegate"
             description="自分のスキルを必要としないが、こなさなければならないタスク"
           />
+          <TodoList category="Delegate" />
         </GridItem>
         <GridItem colSpan={2} bg="#fb7b7b">
-          <TitleAndDescription
-            title="Delete"
+          <CategoryAndDescription
+            category="Delete"
             description="気が散るようなことや、不必要なタスク"
           />
+          <TodoList category="Delete" />
         </GridItem>
       </Grid>
     </Layouts>

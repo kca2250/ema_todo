@@ -4,11 +4,11 @@ import { TITLE_AND_DESCRIPTION } from "../constants/types";
 
 type Props = TITLE_AND_DESCRIPTION;
 
-export const TitleAndDescription: React.FC<Props> = (props) => {
+export const CategoryAndDescription: React.FC<Props> = (props) => {
   return (
     <Flex alignItems="flex-end" justifyContent="space-between" padding="3">
       <Heading as="h2" color="white">
-        {props.title}
+        {props.category}
       </Heading>
       <Tooltip
         hasArrow

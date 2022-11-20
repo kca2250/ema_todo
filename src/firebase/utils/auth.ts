@@ -4,15 +4,15 @@ import {
   getAuth,
   setPersistence,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
-import { provider } from "../config";
+import { auth, provider } from "../config";
 
 export function useAuth() {
   const navigate = useNavigate();
 
-  const login = async () => {
-    const auth = getAuth();
-    await setPersistence(auth, browserLocalPersistence).then(() => {
+  const login = () => {
+    setPersistence(auth, browserLocalPersistence).then(() => {
       signInWithPopup(auth, provider).then((result) => {
         console.log(result);
         navigate("/");
@@ -21,5 +21,12 @@ export function useAuth() {
     });
   };
 
-  return { login };
+  const logout = () => {
+    signOut(auth).then(() => {
+      navigate("/login");
+      return;
+    });
+  };
+
+  return { login, logout };
 }

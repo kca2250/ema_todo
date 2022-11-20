@@ -1,7 +1,7 @@
-import { Description, Title } from "./types";
+import { Description, Categories } from "./types";
 
 type RadioItems = {
-  title: Title;
+  title: Categories;
   description: Description;
   color: "whatsapp" | "facebook" | "yellow" | "red";
 }[];

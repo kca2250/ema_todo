@@ -41,7 +41,9 @@ export const AddButton: React.FC = () => {
 
   return (
     <>
-      <Button onClick={onOpen}>AddTodo</Button>
+      <Button size="sm" onClick={onOpen}>
+        AddTodo
+      </Button>
 
       {/* モーダル */}
       <Modal isOpen={isOpen} onClose={onClose}>

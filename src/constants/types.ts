@@ -1,6 +1,6 @@
-type Title = "Do" | "Decide" | "Delegate" | "Delete";
+export type Title = "Do" | "Decide" | "Delegate" | "Delete";
 
-type Description =
+export type Description =
   | "期限や影響があるタスク"
   | "長期的成功に関わる、期限が不明確なタスク"
   | "自分のスキルを必要としないが、こなさなければならないタスク"

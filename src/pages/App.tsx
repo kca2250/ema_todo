@@ -1,9 +1,21 @@
 import { Grid, GridItem } from "@chakra-ui/react";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { CategoryAndDescription } from "../components/CategoryAndDescription";
 import { TodoList } from "../components/TodoList";
+import { auth } from "../firebase/config";
 import { Layouts } from "../layouts";
 
 function App() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      !user && navigate("/login");
+    });
+  }, []);
+
   return (
     <Layouts>
       <Grid

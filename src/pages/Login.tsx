@@ -1,8 +1,21 @@
 import { Box, Button, Center, Flex, Heading, Text } from "@chakra-ui/react";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../firebase/config";
+import { useAuth } from "../firebase/utils/auth";
 
 export const LoginPage: React.FC = () => {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      user && navigate("/");
+    });
+  }, []);
+
   return (
     <Center
       margin="auto"
@@ -25,7 +38,11 @@ export const LoginPage: React.FC = () => {
             <Link to="#">プライバシーポリシー</Link>
           </Flex>
 
-          <Button leftIcon={<FcGoogle size="1.2em" />} color="ActiveBorder">
+          <Button
+            leftIcon={<FcGoogle size="1.2em" />}
+            color="ActiveBorder"
+            onClick={login}
+          >
             Login with Google
           </Button>
         </Flex>

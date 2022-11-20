@@ -1,4 +1,4 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { Categories, List } from "../constants/types";
 import { Todos } from "../seeds/todos";
@@ -12,6 +12,14 @@ export const TodoList: React.FC<{
   const newList = todoList.filter(
     ({ category }) => category === props.category
   );
+
+  if (newList.length === 0)
+    return (
+      <Text p={4} color="white">
+        タスクが見つかりません
+      </Text>
+    );
+
   return (
     <Grid templateRows="repeat(2, 1fr)" templateColumns="repeat(6, 1fr)">
       {newList.map((item, index) => (

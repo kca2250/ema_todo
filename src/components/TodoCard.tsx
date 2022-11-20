@@ -1,19 +1,19 @@
-import { Card, CardBody, CardFooter, Text } from "@chakra-ui/react";
+import { Card, CardBody, Text } from "@chakra-ui/react";
 
 export const TodoCard: React.FC<{
   content: string;
-  createdAt: string;
+  dueDate: string;
 }> = (props) => {
   return (
-    <Card maxW="xs" backgroundColor="white">
+    <Card m={3} maxW="xs" backgroundColor="white" height="auto">
       <CardBody
-        p="3"
+        p={4}
         cursor="pointer"
         onClick={() => console.log(props.content)}
       >
         {props.content}
-        <Text fontSize="sm" opacity="0.6">
-          {props.createdAt}
+        <Text fontSize="sm" opacity="0.4">
+          期限日：{props.dueDate}
         </Text>
       </CardBody>
     </Card>

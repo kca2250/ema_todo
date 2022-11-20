@@ -1,4 +1,4 @@
-export type Title = "Do" | "Decide" | "Delegate" | "Delete";
+export type Categories = "Do" | "Decide" | "Delegate" | "Delete";
 
 export type Description =
   | "期限や影響があるタスク"
@@ -7,6 +7,14 @@ export type Description =
   | "気が散るようなことや、不必要なタスク";
 
 export type TITLE_AND_DESCRIPTION = {
-  title: Title;
+  category: Categories;
   description: Description;
 };
+
+export type Todo = {
+  dueDate: string;
+  content: string;
+  category: Categories;
+};
+
+export type List = Todo[];

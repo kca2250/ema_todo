@@ -1,6 +1,6 @@
 import { Button, Flex, Heading, Tooltip } from "@chakra-ui/react";
 import { BsQuestionCircle } from "react-icons/bs";
-import { TITLE_AND_DESCRIPTION } from "../constants/TITLE_AND_DESCRIPTION";
+import { TITLE_AND_DESCRIPTION } from "../constants/types";
 
 type Props = TITLE_AND_DESCRIPTION;
 
